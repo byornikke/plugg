@@ -1,6 +1,3 @@
-00001:Niklas Erlandsson:19960522:1001:debit account:800:1007:debit account:0#1008:debit account:0
-00002:Mikael Erlandsson:19920513:1002:debit account:0:1009:debit account:0
-00003:Pia Boman:19660325:1003:debit account:0
-00004:Gustav Svensson:19960809:1004:debit account:0
-00005:Peter Boman:19730604:1005:debit account:0
-00006:Jimmy Hansson:19960327:1006:debit account:0
+00002:Steve Stevensson:19121212:1002:debit account:0
+00003:Phteven Kaspersson:19520304:1003:debit account:0
+00003:Niklas Erlandsson:19960522:1001:debit account:1200.0:1004:debit account:1500.0
