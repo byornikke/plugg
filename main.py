@@ -1,37 +1,3 @@
-from klasser import *
 from klasser import Bank
 
-Bank._load()
-
-#startbank()
-'''
-Customer.add_customer('Niklas Erlandsson', 19960522)
-Customer.add_customer('Niklas Erlandsson', 19960522)
-Customer.add_customer('Mikael Erlandsson', 19920513)
-Customer.add_customer('Pia Boman', 19660325)
-Customer.add_customer('Gustav Svensson', 19960809)
-Customer.add_customer('Peter Boman', 19730604)
-Customer.add_customer('Linus Boman', 20070220)
-Customer.add_customer('Jimmy Hansson', 19960327)
-Account.add_account(19960522)
-Account.add_account(19960522)
-Account.add_account(19920513)
-'''
-#Bank.get_customers()
-print(*Bank.kundinfo, sep="\n")
-Account.deposit('19960522','1001',1200)
-Account.get_account('19960522','1002')
-Account.get_account('19960522','1001')
-#print(*Customer.kundinfo, sep="\n")
-Customer.add_customer('Linus Boman', 20070220)
-Account.deposit('19960522','1001',100)
-Account.get_account('19960522','1001')
-Account.withdraw('19960522','1001',500)
-Account.get_account('19960522','1001')
-#print(*Bank.kundinfo, sep="\n")
-Bank.get_customers()
-Account.close_account('19960522','1001')
-Account.add_account('19920513')
-Customer.remove_customer('19660325')
-Customer.change_customer_name('Phteevee', '19960522')
-print(*Bank.kundinfo, sep="\n")
+Bank.startbank()
