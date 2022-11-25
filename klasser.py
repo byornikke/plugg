@@ -1,6 +1,7 @@
 from datetime import datetime
 import numpy as np
 import math
+from random import randint
 
 class Bank():
     kundinfo = []
@@ -111,7 +112,7 @@ class Account():
         return
     
     def generate_acc(): # genererar nytt kontonummer, anropas endast av add_account
-        acc = 1001 # variabel som gör att gamla konton som stängts kan återanvändas
+        acc = randint(1,99999) 
         restart = True
         while restart:
             restart = False
@@ -122,7 +123,7 @@ class Account():
                     if str(acc) == Bank.kundinfo[r][c]:
                         acc += 1
                         restart = True
-
+        acc = f"{acc:05}"
         return str(acc)
                
     def get_account(pnr, account_id): # spottar ut saldo och kontotyp 
