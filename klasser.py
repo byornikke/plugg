@@ -12,7 +12,7 @@ class Bank():
     
     def _load(): #Läser in textfilen och befolkar listan som ska innehålla kunderna.
         load_ok = False
-        with open("mockdata.txt", "r") as file: # fil som ska läsas in
+        with open("plugg-main\mockdata.txt", "r") as file: # fil som ska läsas in
             data = [line.strip() for line in file]
             for line in data:
                 line = line.replace("#", ":")
@@ -24,7 +24,7 @@ class Bank():
         save_ok = False
         test_lines = [':'.join(line) for line in Bank.kundinfo]
         test = '\n'.join(test_lines)
-        with open("mockdata.txt", "w") as file: # ändra till fil som ska modifieras. satt till samma som inläsningsfil som standard
+        with open("plugg-main\mockdata.txt", "w") as file: # ändra till fil som ska modifieras. satt till samma som inläsningsfil som standard
             file.write(test)
             save_ok = True
         return save_ok
