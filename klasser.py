@@ -1,5 +1,4 @@
 from datetime import datetime
-import numpy as np
 import math
 from random import randint
 
@@ -137,12 +136,13 @@ class Account():
         return print("\nNågot blev fel. Kontrollera uppgifter och försök igen.") # fångar alla misstag
 
     def deposit(pnr, account_id, amount): # sätt in pengar
+        if float(amount) <= 0:
+            return print("Insättning inte OK.")
         rows = len(Bank.kundinfo) #loopa igenom hela listan
         for r in range(rows):
             columns = len(Bank.kundinfo[r])
             for c in range(columns):
-                if (account_id == Bank.kundinfo[r][c]) and (pnr == Bank.kundinfo[r][2]): 
-                    #kolla så att konto och pnr stämmer överens
+                if (account_id == Bank.kundinfo[r][c]) and (pnr == Bank.kundinfo[r][2]): #kolla så att konto och pnr stämmer överens
                     saldo = float(Bank.kundinfo[r][c+2]) + float(amount)
                     Bank.kundinfo[r][c+2] = str(saldo) #skriver in i Bank.kundinfo
                     return print("Du har nu",saldo,"kr på kontot med nummer:",account_id, "\nDin insättning var", amount, "kr")
@@ -150,6 +150,8 @@ class Account():
         return print("Något blev fel. Kontrollera uppgifter och försök igen.") #fångar de fall när det inte stämmer
 
     def withdraw(pnr, account_id, amount): # ta ut pengar om det finns tillräckligt på kontot
+        if float(amount) <= 0:
+            return print("Insättning inte OK.")
         rows = len(Bank.kundinfo) #loopa igenom hela listan
         for r in range(rows):
             columns = len(Bank.kundinfo[r])
@@ -158,9 +160,11 @@ class Account():
                     #kolla så att konto och pnr stämmer överens
                     saldo = float(Bank.kundinfo[r][c+2])
                     amount = float(amount)
-                    if amount < saldo:
+                    if amount <= saldo:
                         saldo -= amount
                         Bank.kundinfo[r][c+2] = str(saldo) #skriver in i Bank.kundinfo
+                    elif amount > saldo:
+                        return(print("Saldo inte tillräckligt."))
                     return print("Du har nu - ",saldo,"kr - på konto med nummer:",account_id, "\nDitt uttag var", amount, "kr")
         
         return print("\nNågot blev fel. Kontrollera uppgifter och försök igen.") #fångar de fall när det inte stämmer
