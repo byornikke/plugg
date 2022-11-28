@@ -11,7 +11,7 @@ class Bank():
     
     def _load(): #Läser in textfilen och befolkar listan som ska innehålla kunderna.
         load_ok = False
-        with open("plugg-main\mockdata.txt", "r") as file: # fil som ska läsas in
+        with open("mockdata.txt", "r") as file: # fil som ska läsas in
             data = [line.strip() for line in file]
             for line in data:
                 line = line.replace("#", ":")
@@ -23,7 +23,7 @@ class Bank():
         save_ok = False
         test_lines = [':'.join(line) for line in Bank.kundinfo]
         test = '\n'.join(test_lines)
-        with open("plugg-main\mockdata.txt", "w") as file: # ändra till fil som ska modifieras. satt till samma som inläsningsfil som standard
+        with open("mockdata.txt", "w") as file: # ändra till fil som ska modifieras. satt till samma som inläsningsfil som standard
             file.write(test)
             save_ok = True
         return save_ok
@@ -45,7 +45,7 @@ class Customer():
         l = len(Bank.kundinfo) + 1
     
         if any([e[2] == pnr for e in Bank.kundinfo]): # kollar så inte pnr redan finns i kundlistan
-            return print("Kund: ",name," finns redan."), False
+            return print("Kund med personnummer: ",pnr," finns redan."), False
         
         ID = Customer.generate_IDnum(l) # genererar ett unikt ID för kund
         Bank.kundinfo.append([ID, name, pnr])
@@ -151,7 +151,7 @@ class Account():
 
     def withdraw(pnr, account_id, amount): # ta ut pengar om det finns tillräckligt på kontot
         if float(amount) <= 0:
-            return print("Insättning inte OK.")
+            return print("Uttagssumma inte OK.")
         rows = len(Bank.kundinfo) #loopa igenom hela listan
         for r in range(rows):
             columns = len(Bank.kundinfo[r])
@@ -280,5 +280,4 @@ class Menu():
         return 
 
     pass
-
 
